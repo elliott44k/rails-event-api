@@ -10,24 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_26_211709) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_27_203117) do
   create_table "events", force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
     t.string "location", null: false
-    t.datetime "start_time", null: false
-    t.datetime "end_time", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.datetime "start_time", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "end_time", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.integer "user_id", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
     t.string "password_digest", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
