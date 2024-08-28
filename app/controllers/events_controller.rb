@@ -1,6 +1,4 @@
 class EventsController < ApplicationController
-  def new
-  end
 
   # GET /events
   def index
@@ -49,7 +47,6 @@ class EventsController < ApplicationController
   def destroy
     @user = User.find_by(id: event_params[:user_id])
     @event = @user.events.find_by(id: params[:id])
-
     if @event
       if @event.destroy!
         render json: ("Event #{params[:id]} deleted"), status: :ok
