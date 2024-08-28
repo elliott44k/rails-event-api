@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   post '/events', to: 'events#create'
   put '/events', to: 'events#update'
   delete '/events/:id', to: 'events#destroy'
-#   post 'signup'
+  post 'signup', to: 'users#create'
+  get 'users', to: 'users#index'
+  delete '/users/:id', to: 'users#destroy'
 #   post 'login'
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

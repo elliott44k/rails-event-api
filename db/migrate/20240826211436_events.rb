@@ -1,6 +1,6 @@
 class Events < ActiveRecord::Migration[7.1]
   def change
-    add_foreign_key :events, :users, :user_id
+    add_foreign_key :events, :users
     change_column_default :events, :start_time, -> {'CURRENT_TIMESTAMP'}
     change_column_default(:events, :end_time, -> {'CURRENT_TIMESTAMP'})
     change_column_default(:events, :created_at, -> {'CURRENT_TIMESTAMP'})
